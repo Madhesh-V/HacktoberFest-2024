@@ -1,3 +1,11 @@
+//parthasarathy27-patch-3
+// Your First Program
+
+class HelloWorld {
+    public static void main(String[] args) {
+        System.out.println("Hello, World!"); 
+    }
+
 // This is a simple Java program.
 // FileName : "HelloWorld.java".
 
@@ -8,4 +16,5 @@ class HelloWorld {
 	{
 		System.out.println("Hello, World");
 	}
+  main
 }
