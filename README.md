@@ -28,23 +28,12 @@
 
 # How To Make Your First Pull Request
 
-Replace `<YOUR-USERNAME>` with your GitHub username in this guide.
+## 1. Add your profile information
 
-## 1. Add your profile picture to the folder
-
-Add a picture picture of your choice in `static/images/`. Accepted files are **png** and **jpg**, should be squared and minimum size 544x544 pixels. Ex.
+Create a markdown file in your folder following the convention `/participants/<YOUR-USERNAME>.md`. Ex.
 
 ```
-static/images/<YOUR-USERNAME>.png
-```
-
-
-## 2. Add your profile information
-
-Create a markdown file in your folder following the convention `content/participant/<YOUR-USERNAME>.md`. Ex.
-
-```
-content/participant/<YOUR-USERNAME>.md
+/participants/<YOUR-USERNAME>.md
 ```
 
 Copy the next template into your file, delete the boilerplate data and fill the information with yours.
@@ -52,7 +41,7 @@ Copy the next template into your file, delete the boilerplate data and fill the 
 ```
 ---
 name: YOURNAME
-Role: INSTITUTION_NAME
+Role: FULLSTACKDEVELOPER
 github: USERNAME
 ---
 ```
@@ -61,7 +50,7 @@ github: USERNAME
 <h2> OR </h2>
 </div>
 
-## 3. Create / Upload Your Code / Algorithms
+## 2. Create / Upload Your Code / Algorithms
 
 Create/Upload your code in folder following the convention `Add Code Here`
 - Choose an extact lanaguage folder `drop your code`
@@ -75,9 +64,9 @@ Add Code Here/C++/<YOUR-FILERNAME>.cpp
 ```
 You can follow any pathway a `code` or `profile information`
 
-## 4. Wait for Pull Request to merge
+## 3. Wait for Pull Request to merge
 
-## 5. Celebrate - you've done your first pull request!!
+## 4. Celebrate - you've done your first pull request!!
 
 ```py
 '''
