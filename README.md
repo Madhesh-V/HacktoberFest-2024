@@ -1,4 +1,4 @@
-# HacktoberFest 2023 OPEN FIRST Pull Request
+# Hacktoberfest 2023 Open Pull Request
 ![HacktoberFest 2023](https://github.com/ossamamehmood/Hacktoberfest2022/raw/main/.github/logo.png)
 
 ## This Project Is Perfect For Your First Pull Request
