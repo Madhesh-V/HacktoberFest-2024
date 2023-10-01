@@ -13,10 +13,6 @@
  <img src="https://img.shields.io/static/v1?label=%F0%9F%8C%9F&message=If%20Useful&style=style=flat&color=BC4E99" alt="Star Badge"/>
  <a href="https://github.com/ossamamehmood" ><img src="https://img.shields.io/badge/Contributions-welcome-violet.svg?style=flat&logo=git" alt="Contributions" /></a>
 
-<a href="https://github.com/ossamamehmood/hacktoberfest2022/pulls"><img src="https://img.shields.io/github/issues-pr/ossamamehmood/hacktoberfest2022" alt="Pull Requests Badge"/></a>
-<a href="https://github.com/ossamamehmood/hacktoberfest2022/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/ossamamehmood/hacktoberfest2022?color=2b9348"></a>
-<a href="https://github.com/ossamamehmood/hacktoberfest2022/blob/master/LICENSE"><img src="https://img.shields.io/github/license/ossamamehmood/hacktoberfest2022?color=2b9348" alt="License Badge"/></a>
-
 </div>
 
 ## INSTRUCTIONS-
