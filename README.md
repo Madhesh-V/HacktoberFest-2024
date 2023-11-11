@@ -1,12 +1,6 @@
 # Hacktoberfest 2023 Open Pull Request
 ![HacktoberFest 2023](https://github.com/ossamamehmood/Hacktoberfest2022/raw/main/.github/logo.png)
 
-## This Project Is Perfect For Your First Pull Request
-
-🗣 **Hacktoberfest encourages participation in the open source community, which grows bigger every year. Complete the challenge and earn a limited edition T-shirt.**
-
-📢 **Register [here](https://hacktoberfest.com/) for Hacktoberfest and make four pull requests (PRs) between October 1st-31st to grab free SWAGS 🔥.**
-
 <div align="center">
 
 <img src="https://img.shields.io/badge/hacktoberfest-2023-blueviolet" alt="Hacktober Badge"/>
