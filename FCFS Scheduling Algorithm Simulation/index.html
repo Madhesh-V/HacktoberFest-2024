@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>FCFS Scheduler</title>
+    <link rel="stylesheet" href="style.css">
+	<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+<body>
+    <div class="bg1">
+
+        <h1>FCFS Scheduler</h1>
+    </div>
+	<form id="myform">
+      
+        <div class="input-container">
+        <input type="text" id="processes" name="processes" required=""/>
+        <span class="omrs-input-helper">P1, P2, P3 ...</span>
+        <label for="processes">Enter Processes:</label>
+        </div><br><br>
+        
+        <div class="input-container">
+          <input type="text" id="arrival" name="arrival" required=""/>
+          <span class="omrs-input-helper">2, 4, 5...</span>
+          <label for="arrival">Enter Arrival Time:</label></div><br><br>
+        
+        <div class="input-container">
+          <input type="text" id="burst" name="burst" required=""/>
+          <span class="omrs-input-helper">2, 4, 5...</span>
+          <label for="burst">Enter Burst Time:</label></div><br><br>
+  
+   
+          <button class="btn-19" onclick="fcfs()" id="submit-btn">
+  
+        
+          <span class="text-container">
+            <span class="text">Submit</span>
+            
+          </span>
+        </button> 
+      </form>
+      <br>
+      
+      <div id="result"></div>
+      
+	  <div class="chart-container">
+		<canvas id="myChart"></canvas>
+	</div>
+	<script>
+		document.getElementById("myform").addEventListener("submit", function(event) {
+			event.preventDefault(); // Prevent the form from submitting normally
+
+			var processes = document.getElementById("processes").value;
+			var arrival = document.getElementById("arrival").value;
+			var burst = document.getElementById("burst").value;
+		    
+		    var processes_arr = processes.split(",");
+		    var arrival_arr = arrival.split(",");
+		    var burst_arr = burst.split(",");
+		    
+		    var n = processes_arr.length;
+			// const tasks = [];
+			// for (let index = 0; index < processes_arr.length; index++) {
+			// 	tasks.push(burst_arr[index]);
+			// }
+
+			
+			
+		    
+		    // Sort processes based on arrival time
+		    var process_arrival_time = [];
+		    for (var i = 0; i < n; i++) {
+		      process_arrival_time.push({index: i, arrival_time: parseInt(arrival_arr[i])});
+		    }
+		    process_arrival_time.sort(function(a, b) {
+		      return a.arrival_time - b.arrival_time;
+		    });
+		    
+		    var completion_time = [];
+		    var turnaround_time = [];
+		    var waiting_time = [];
+		    
+		    // Calculate completion time for each process
+		    var current_time = 0;
+		    for (var i = 0; i < n; i++) {
+		      var process_index = process_arrival_time[i].index;
+		      var service_time = parseInt(burst_arr[process_index]);
+		      var process_completion_time = current_time + service_time;
+		      completion_time.push(process_completion_time);
+		      current_time = process_completion_time;
+		    }
+		    
+		    // Calculate waiting time and turnaround time for each process
+		    var total_waiting_time = 0;
+		    var total_turnaround_time = 0;
+		    for (var i = 0; i < n; i++) {
+		      var process_index = process_arrival_time[i].index;
+		      var process_waiting_time = completion_time[i] - parseInt(burst_arr[process_index]) - parseInt(arrival_arr[process_index]);
+		      waiting_time.push(process_waiting_time);
+		      total_waiting_time += process_waiting_time;
+		      
+		      var process_turnaround_time = completion_time[i] - parseInt(arrival_arr[process_index]);
+		      turnaround_time.push(process_turnaround_time);
+		      total_turnaround_time += process_turnaround_time;
+		    }
+		    
+            // Calculate average waiting time and turnaround time
+            var avg_waiting_time = total_waiting_time / n;
+            var avg_turnaround_time = total_turnaround_time / n;
+
+            // Display the result in a table
+            var result = "<h1>FCFS Scheduling Result:</h1>"+"<br>";
+            result += "<table border='1'><tr><th>Process</th><th>Arrival Time</th><th>Burst Time</th><th>Completion Time</th><th>Waiting Time</th><th>Turnaround Time</th></tr>";
+			schedule =[];
+            for (var i = 0; i < n; i++) {
+            var process_index = process_arrival_time[i].index;
+			
+			schedule[i] = processes_arr[process_index];
+            result += "<tr><td>" + processes_arr[process_index] + "</td><td>" + arrival_arr[process_index] + "</td><td>" + burst_arr[process_index] + "</td><td>" + completion_time[i] + "</td><td>" + waiting_time[i] + "</td><td>" + turnaround_time[i] + "</td></tr>";
+            }
+            result += "</table><br>";
+            result += " Average Waiting Time: " + avg_waiting_time.toFixed(2) + "<br>";
+            result += " Average Turnaround Time: " + avg_turnaround_time.toFixed(2) + "<br><br>";
+
+            document.getElementById("result").innerHTML = result;
+            window.scrollTo(0, document.body.scrollHeight);
+
+
+
+			var ctx = document.getElementById('myChart').getContext('2d');
+
+			time=[];
+			for (let index1 = 0; index1 < processes_arr.length; index1++) {
+			time[index1] = index1;
+			}
+
+			
+			var myChart = new Chart(ctx, {
+				type: 'bar',
+				data: {
+					labels:schedule,
+				
+					datasets: [{
+						label: 'tasks',
+						data: completion_time,
+						backgroundColor: [
+						'rgba(255, 99, 132, 0.2)',
+						'rgba(54, 162, 235, 0.2)',
+						'rgba(255, 206, 86, 0.2)',
+						'rgba(75, 192, 192, 0.2)',
+						'rgba(153, 102, 255, 0.2)',
+						'rgba(255, 159, 64, 0.2)'
+					],
+					borderColor: [
+						'rgba(255,99,132,1)',
+						'rgba(54, 162, 235, 1)',
+						'rgba(255, 206, 86, 1)',
+						'rgba(75, 192, 192, 1)',
+						'rgba(153, 102, 255, 1)',
+						'rgba(255, 159, 64, 1)'
+					],
+					borderWidth: 1
+				}]
+			},
+				
+				
+				options: {
+					scales: {
+						yAxes: [{
+							ticks: {
+							
+							}
+						}]
+						
+					}
+				}
+			});
+        });
+
+		
+
+
+
+
+        </script>
+		<script src="/script.js"></script>r
+    </body>
+</html>
